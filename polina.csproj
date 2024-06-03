@@ -18,9 +18,31 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Resource Include="bin\Debug\net8.0-windows\img\dflt.jpg" />
-      <Resource Include="bin\Debug\net8.0-windows\img\wb.jpg" />
-      <Resource Include="bin\Debug\net8.0-windows\img\wb.png" />
+      <Resource Include="img\dflt.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="img\wb.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="img\wb.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="bin\Debug\net8.0-windows\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="img\8bghSwGIglU.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="img\lTFu-hslX1c.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="img\Котек.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
