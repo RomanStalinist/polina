@@ -1,4 +1,5 @@
 ﻿using polina.classes;
+using System.Windows;
 
 namespace polina;
 
@@ -17,23 +18,29 @@ public partial class BackupPage
     public BackupPage()
     {
         InitializeComponent();
-        Messages.ItemsSource = App.AppDbContext.messages.ToList().Select(x => new MessageInfo(App.AppDbContext.users.First(u => u.id == x.sender).name, x.text));
+        Messages.ItemsSource = App
+            .AppDbContext
+            .messages
+            .ToList()
+            .Select(x => new MessageInfo(App.AppDbContext.users.First(u => u.id == x.sender).name, x.text));
 
         if (App.User.role == "m")
         {
-            MessagesView.Visibility = System.Windows.Visibility.Visible;
-            SendForm.Visibility = System.Windows.Visibility.Collapsed;
+            MessagesView.Visibility = Visibility.Visible;
+            SendForm.Visibility = Visibility.Collapsed;
         }
         else
         {
-            MessagesView.Visibility = System.Windows.Visibility.Collapsed;
-            SendForm.Visibility = System.Windows.Visibility.Visible;
+            MessagesView.Visibility = Visibility.Collapsed;
+            SendForm.Visibility = Visibility.Visible;
         }
     }
 
-    private void SendBtn_OnClick(object sender, System.Windows.RoutedEventArgs e)
+    private void SendBtn_OnClick(object sender, RoutedEventArgs e)
     {
-        string text = MessageTextBox.Text, mail = MailTextBox.Text;
+        String text = MessageTextBox.Text;
+        String mail = MailTextBox.Text;
+
         App.AppDbContext.messages.Add(new message
         {
             text = text, mail = mail, sender = App.User.id
