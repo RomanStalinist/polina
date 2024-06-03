@@ -1,0 +1,76 @@
+﻿<Page x:Class="polina.BuyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      FontSize="16"
+      Title="Купить"
+      FontFamily="Open Sans"
+      Background="WhiteSmoke"
+      PreviewKeyDown="buyPage_OnPreviewKeyDown">
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Auto">
+        <Grid MinWidth="500">
+            <StackPanel VerticalAlignment="Top"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="5,10,0,12">
+                <TextBox Width="200"
+                         x:Name="SearchBox"
+                         Padding="7,4"/>
+                <Button Content="Найти"
+                        x:Name="SearchBtn"
+                        Padding="7,2"
+                        Click="searchBtn_OnClick"/>
+            </StackPanel>
+            
+            <StackPanel>
+                <TextBlock Text="Купить"
+                           FontSize="24"
+                           Padding="10"
+                           x:Name="BuyClothBlock"
+                           HorizontalAlignment="Left"/>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="300"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <ListView Grid.Column="0"
+                              Padding="10"
+                              x:Name="ClothesView"
+                              Background="White"
+                              SelectionChanged="ClothesView_OnSelectionChanged"/>
+                    
+                    <Border Grid.Column="1"
+                            Padding="10"
+                            Background="White"
+                            BorderThickness="1"
+                            BorderBrush="#adacb1">
+                        <StackPanel>
+                            <Border BorderThickness="1"
+                                    BorderBrush="#abacb1">
+                                <Image Width="250"
+                                       Height="250"
+                                       Stretch="Fill"
+                                       Margin="10"
+                                       x:Name="SelectedImage"
+                                       Source="/bin/Debug/net8.0-windows/img/dflt.jpg"/>
+                            </Border>
+                            
+                            <TextBlock Text="Название"
+                                       Margin="0,10"
+                                       x:Name="SelectedName"/>
+                            <TextBlock Text="Описание"
+                                       Margin="0,5"
+                                       x:Name="SelectedDescription"/>
+                            <Button x:Name="BuyBtn"
+                                    Content="Купить"
+                                    Margin="0,5"
+                                    Click="buyBtn_OnClick"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>
